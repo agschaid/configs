@@ -1,0 +1,1 @@
+O make sure to use 256 color terminal
