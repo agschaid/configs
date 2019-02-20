@@ -197,7 +197,7 @@
 			<menu id="conkyconfig" label="Conky">
 				<item label="Edit .conkyrc">
 					<action name="Execute">
-						<execute>geany ~/.conkyrc</execute>
+						<execute>terminator -T .conkyrc -e "vim ~/.conkyrc"</execute>
 					</action>
 				</item>
 				<item label="Restart Conky">
@@ -220,7 +220,7 @@
 			<menu id="dmenuconfig" label="dmenu">
 				<item label="Edit start-up script">
 					<action name="Execute">
-						<execute>geany ~/.config/dmenu/dmenu-bind.sh</execute>
+						<execute>terminator -T dmenu-bind.sh -e "vim ~/.config/dmenu/dmenu-bind.sh"</execute>
 					</action>
 				</item>
 				<separator label="Help?"/>
@@ -233,7 +233,7 @@
 			<menu id="gmrunconfig" label="gmrun">
 				<item label="Edit config file">
 					<action name="Execute">
-						<execute>geany ~/.gmrunrc</execute>
+						<execute>terminator -T .gmrunrc -e "vim ~/.gmrunrc"</execute>
 					</action>
 				</item>
 				<separator label="Help?"/>
@@ -246,17 +246,17 @@
 			<menu id="obConfig" label="Openbox">
 				<item label="Edit menu.xml">
 					<action name="Execute">
-						<execute>geany ~/.config/openbox/menu.xml</execute>
+						<execute>terminator -T menu.xml -e "vim ~/.config/openbox/menu.xml"</execute>
 					</action>
 				</item>
 				<item label="Edit rc.xml">
 					<action name="Execute">
-						<execute>geany ~/.config/openbox/rc.xml</execute>
+						<execute>terminator -T rc.xml -e "vim ~/.config/openbox/rc.xml"</execute>
 					</action>
 				</item>
 				<item label="Edit autostart">
 					<action name="Execute">
-						<execute>geany ~/.config/openbox/autostart</execute>
+						<execute>terminator -T autostart -e "vim ~/.config/openbox/autostart"</execute>
 					</action>
 				</item>
 				<separator/>
@@ -286,7 +286,7 @@
 			<menu id="tint2config" label="tint2">
 				<item label="Edit config file">
 					<action name="Execute">
-						<execute>geany ~/.config/tint2/tint2rc</execute>
+						<execute>terminator -T tint2rc -e "vim ~/.config/tint2/tint2rc"</execute>
 					</action>
 				</item>
 				<item label="Restart tint2">
