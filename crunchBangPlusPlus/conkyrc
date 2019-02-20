@@ -54,6 +54,8 @@ RAM:$alignr$mem/$memmax
 Swap usage:$alignr$swap/$swapmax
 Disk usage:$alignr${fs_used /}/${fs_size /}
 CPU usage:$alignr${cpu cpu0}%
+# stripcolorcodes is one of my own scripts. Maintained in the same repo.
+Express-VPN:$alignr${execi 3 expressvpn status | head -1 | stripcolorcodes }
 
 
 S H O R T C U T    K E Y S
