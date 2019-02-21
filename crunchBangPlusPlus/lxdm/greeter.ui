@@ -43,7 +43,7 @@
                     </child>
                     <child>
                       <object class="GtkComboBoxEntry" id="sessions">
-                        <property name="visible">False</property>
+                        <property name="visible">True</property>
                         <property name="text_column">0</property>
                       </object>
                       <packing>
