@@ -57,19 +57,20 @@ CPU usage:$alignr${cpu cpu0}%
 # stripcolorcodes is one of my own scripts. Maintained in the same repo.
 Express-VPN:$alignr${execi 3 expressvpn status | head -1 | stripcolorcodes }
 
-
-S H O R T C U T    K E Y S
-${hr}
-Super+p$alignr dmenu
-Super+Space$alignr Main Menu
-Super+Tab$alignr Client Menu
-Super+t$alignr Terminal
-Super+f$alignr File Manager
-Super+e$alignr Editor
-Super+m$alignr Media Player
-Super+w$alignr Web Browser
-Super+h$alignr Task Manager
-Super+l$alignr Lock Screen
-Super+v$alignr Volume Control
-Super+x$alignr Logout
-PrtSc$alignr Screenshot
+# TODO delete when you're sure that you aint gonna need these
+#
+# S H O R T C U T    K E Y S
+# ${hr}
+# Super+p$alignr dmenu
+# Super+Space$alignr Main Menu
+# Super+Tab$alignr Client Menu
+# Super+t$alignr Terminal
+# Super+f$alignr File Manager
+# Super+e$alignr Editor
+# Super+m$alignr Media Player
+# Super+w$alignr Web Browser
+# Super+h$alignr Task Manager
+# Super+l$alignr Lock Screen
+# Super+v$alignr Volume Control
+# Super+x$alignr Logout
+# PrtSc$alignr Screenshot

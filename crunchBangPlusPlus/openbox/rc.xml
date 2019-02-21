@@ -339,7 +339,7 @@
         <command>thunar</command>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <keybind key="W-S-Return">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -402,7 +402,7 @@
         <command>mate-volume-control</command>
       </action>
     </keybind>
-    <keybind key="W-x">
+    <keybind key="W-S-q">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
