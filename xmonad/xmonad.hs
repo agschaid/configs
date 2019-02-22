@@ -23,8 +23,6 @@ import XMonad.Layout.Monitor
 
 
 main = do
-    spawn "unclutter &"
-    spawn "hsetroot -solid '#002b36' &"
     spawn "~/.xmonad/autostart &"
     xmonad $ ewmh defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig

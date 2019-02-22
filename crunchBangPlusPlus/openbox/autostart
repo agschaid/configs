@@ -56,7 +56,7 @@ fi
 xscreensaver -no-splash &
 
 ## Start Clipboard manager
-(sleep 3s && clipit) &
+## (sleep 3s && clipit) &
 
 ## Set keyboard settings - 250 ms delay and 25 cps (characters per second) repeat rate.
 ## Adjust the values according to your preferances.
@@ -71,7 +71,7 @@ xset b off &
 
 ## cbpp-welcome - post-installation script, will not run in a live session and
 ## only runs once. Safe to remove.
-(sleep 10s && cbpp-welcome --firstrun) &
+# (sleep 10s && cbpp-welcome --firstrun) &
 
 ## Run the conky
 conky -q &

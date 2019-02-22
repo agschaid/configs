@@ -1,0 +1,16 @@
+
+# set background to solarized dark
+hsetroot -solid '#002b36' &
+
+# screensaver
+xscreensaver -no-splash &
+
+#powermanagement
+xfce4-power-manager &
+
+# turn off system beep
+xset b off &
+
+# removes mouse pointer when not needed
+unclutter &
+
