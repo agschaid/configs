@@ -5,6 +5,7 @@ pygtk.require('2.0')
 import gtk
 import os
 import getpass
+import subprocess
 
 class cb_exit:
 	def disable_buttons(self):
@@ -20,8 +21,20 @@ class cb_exit:
 
 	def logout_action(self,btn):
 		self.disable_buttons()
-		self.status.set_label("Exiting Openbox, please standby...")
-		os.system("openbox --exit")
+
+                commands_by_name = {
+                        "Openbox": "openbox --exit",
+                        "xmonad" : 'xdotool key "Super+Alt+Shift+q"'
+                        }
+    
+                wmname = subprocess.check_output(['wmctrl', '-m']).split("\n")[0].split(" ")[1]
+                if wmname in commands_by_name :
+		    self.status.set_label("Exiting {}, please standby...".format(wmname))
+		    os.system( commands_by_name[wmname] )
+                else:
+                    self.status.set_label("Can't handle window manager {}".format(wmname))
+		
+                self.cancel.set_sensitive(True)
 
 	def suspend_action(self,btn):
 		self.disable_buttons()

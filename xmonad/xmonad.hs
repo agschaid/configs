@@ -4,6 +4,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
+import System.Exit
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Named
@@ -29,36 +30,37 @@ main = do
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts $ myLayouts 
         , modMask = mod4Mask
-        , keys = myKeys
+        , keys = keys defaultConfig
         , focusFollowsMouse = False
         , focusedBorderColor = "#cb4b16"
         , normalBorderColor = "#657b83"
         , borderWidth = 2
         , terminal = "terminator"
         }
+        `removeKeys` [(mod4Mask .|. shiftMask ,xK_q)] 
+        `additionalKeys` keysToAdd
         
  
 
 
-keysToAdd x = [ ((mod4Mask, xK_a), sequence_ $ [windows $ copy i | i <- XMonad.workspaces defaultConfig]) -- copy window to all workspaces
+keysToAdd  = [ ((mod4Mask, xK_a), sequence_ $ [windows $ copy i | i <- XMonad.workspaces defaultConfig]) -- copy window to all workspaces
               ,  ((mod4Mask .|. shiftMask, xK_a), windows $ kill8) -- remove window from all workspaces except the current one
               ,  ((mod4Mask, xK_u), sendMessage ShrinkSlave)
               ,  ((mod4Mask, xK_i), sendMessage ExpandSlave)
 	      ,  ((mod4Mask, xK_r), broadcastMessage ToggleMonitor >> refresh)
-              ] ++ (keysForMoving x) ++ (programShortcuts x)
+              ] ++ (programShortcuts ) ++ (quittingKeys )
 
 keysForMoving x = [((m .|. mod4Mask, k), windows $ f i)
                    | (i, k) <- zip (XMonad.workspaces x) [xK_1 ..]
                    , (f, m) <- [(W.view, 0), (W.shift, shiftMask), (copy, shiftMask .|. controlMask)]]
 
-programShortcuts x = [((mod4Mask, xK_n), spawn "firefox")]
+programShortcuts  = [((mod4Mask, xK_n), spawn "firefox")]
+
+quittingKeys  = [ ((mod4Mask .|. shiftMask, xK_q), spawn "cbpp-exit")
+                , ((mod4Mask .|. shiftMask .|. mod1Mask, xK_q), io (exitWith ExitSuccess))
+                ]
 
 
-keysToDel x = []
-
-newKeys x = M.union (keys defaultConfig x) (M.fromList (keysToAdd x))
-
-myKeys x = foldr M.delete (newKeys x) (keysToDel x)
 
 myLayouts = avoidStruts $ ( smartBorders $ (
                             tiled1 |||
