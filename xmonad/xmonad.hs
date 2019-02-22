@@ -33,7 +33,7 @@ main = do
         , focusedBorderColor = "#cb4b16"
         , normalBorderColor = "#657b83"
         , borderWidth = 2
-        , terminal = "terminator"
+        , terminal = "terminator --profile=solarized-dark"
         }
         `removeKeys` [(mod4Mask .|. shiftMask ,xK_q)] 
         `additionalKeys` keysToAdd
