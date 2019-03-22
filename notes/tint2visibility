@@ -1,0 +1,2 @@
+./xdo show -n tint2
+./xdo hide -n tint2
